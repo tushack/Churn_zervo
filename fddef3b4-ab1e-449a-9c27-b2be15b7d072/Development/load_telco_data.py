@@ -132,4 +132,8 @@ feature_importance.to_csv("feature_importance.csv", index=False)
 print("\n✅ Model and artifacts saved successfully")
 import os
 print(os.listdir())
+# Save feature names
+feature_columns = X.columns
+joblib.dump(feature_columns, "model_features.pkl")
+
 

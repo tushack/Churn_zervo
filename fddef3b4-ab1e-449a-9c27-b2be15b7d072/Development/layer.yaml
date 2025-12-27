@@ -8,8 +8,8 @@ blocks:
   compute_settings:
     compute_environment_type: 1
     executor_image_id: null
-  description: Trains Random Forest churn prediction model with cross-validation,
-    threshold tuning, and feature importance analysis on telco data
+  description: Trains Random Forest churn prediction model, validates with cross-validation
+    (84.3% ROC-AUC), and identifies top customer churn risk factors
   height: 1000
   id: 59dc5780-de5c-4016-ae92-dde8db05525b
   layer_id: 5bad7247-427c-4bb2-b16f-d1ccb0349bf6
@@ -22,4 +22,28 @@ blocks:
   width: 1600
   x: 0
   y: 0
-edges: []
+- auto_size: false
+  canvas_id: fddef3b4-ab1e-449a-9c27-b2be15b7d072
+  compute_settings:
+    compute_environment_type: 1
+    executor_image_id: null
+  description: Loads trained churn model and defines API function to predict customer
+    churn risk with probability scores
+  height: 1000
+  id: f54228d0-c0ff-46c0-8e0f-cdd5b7adabcc
+  layer_id: 5bad7247-427c-4bb2-b16f-d1ccb0349bf6
+  name: churn_prediction_api
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 0
+  y: 500
+edges:
+- canvas_id: fddef3b4-ab1e-449a-9c27-b2be15b7d072
+  id: 82111169-eed2-4bd1-b607-931d1da4cd4f
+  layer_id: 5bad7247-427c-4bb2-b16f-d1ccb0349bf6
+  source: 59dc5780-de5c-4016-ae92-dde8db05525b
+  target: f54228d0-c0ff-46c0-8e0f-cdd5b7adabcc
